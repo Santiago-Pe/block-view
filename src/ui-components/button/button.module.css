@@ -1,0 +1,33 @@
+.button {
+  /* Agrega estilos comunes aquí */
+  border: none;
+  cursor: pointer;
+  background-color: black;
+  border-radius: 12px;
+  color: white;
+}
+
+.icon {
+  /* Estilos para el icono si es necesario */
+}
+
+/* Estilos para tamaños */
+.sm {
+  width: 100px;
+  height: 30px;
+}
+
+.md {
+  width: 150px;
+  height: 30px;
+}
+
+.lg {
+  width: 180px;
+  height: 40px;
+}
+
+.xl {
+  width: 200px;
+  height: 60px;
+}

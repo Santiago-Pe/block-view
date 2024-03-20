@@ -1,10 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import { getCryptos } from "../services/services";
-import { Link } from "react-router-dom";
+import { checkEndpointStatus } from "../services/services";
+import { ContanierItems, Show } from "../components";
+import Title from "../ui-components/title/title";
+
 const Home = () => {
-  const cryptosQuery = useQuery({
-    queryKey: ["cryptos"],
-    queryFn: () => getCryptos("usd"),
+  const endpointStatusQuery = useQuery({
+    queryKey: ["enpoint"],
+    queryFn: () => checkEndpointStatus(),
     refetchIntervalInBackground: false,
     refetchOnMount: false,
     refetchOnReconnect: false,
@@ -12,10 +14,24 @@ const Home = () => {
     enabled: true,
     retry: false,
   });
-
-  console.log(cryptosQuery.data);
+  const { isLoading, isError } = endpointStatusQuery;
   return (
-    <Link to={"https://www.coingecko.com/"}>Data provided by CoinGecko</Link>
+    <>
+      <main className="py-4 px-2">
+        <Show>
+          <Show.When isTrue={isLoading}>
+            <div>Loading</div>
+          </Show.When>
+          <Show.When isTrue={isError}>
+            <div>Error al conecatar el endpoint</div>
+          </Show.When>
+          <Show.Else>
+            <Title text="Top 10 Coins" level={1} />
+            <ContanierItems />
+          </Show.Else>
+        </Show>
+      </main>
+    </>
   );
 };
 

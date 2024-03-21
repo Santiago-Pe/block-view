@@ -1,0 +1,6 @@
+.breadcrumbItem + .breadcrumbItem::before {
+  float: left;
+  padding-right: 0.625rem;
+  color: inherit;
+  content: url("/src/assets/images/Chevron.svg") !important;
+}

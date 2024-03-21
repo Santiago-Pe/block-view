@@ -1,21 +1,14 @@
-import { useQuery } from "@tanstack/react-query";
-import { getCryptos } from "../services/services";
-import { Link } from "react-router-dom";
-const Home = () => {
-  const cryptosQuery = useQuery({
-    queryKey: ["cryptos"],
-    queryFn: () => getCryptos("usd"),
-    refetchIntervalInBackground: false,
-    refetchOnMount: false,
-    refetchOnReconnect: false,
-    refetchOnWindowFocus: false,
-    enabled: true,
-    retry: false,
-  });
+import { ContanierItems } from "../components";
+import Title from "../ui-components/title/title";
 
-  console.log(cryptosQuery.data);
+const Home = () => {
   return (
-    <Link to={"https://www.coingecko.com/"}>Data provided by CoinGecko</Link>
+    <>
+      <section className="py-4 px-2">
+        <Title text="Top 10 Coins" level={1} />
+        <ContanierItems />
+      </section>
+    </>
   );
 };
 

@@ -1,8 +1,11 @@
 import { Item, Show } from "../../components";
 import { useQuery } from "@tanstack/react-query";
 import { getCryptos } from "../../services/services";
+import { ErrorComponent, Loading } from "../../ui-components";
+import { useSelector } from "react-redux";
 
 const ContainerItems = () => {
+  const endpointState = useSelector((state) => state.appReducer.isActive);
   const cryptosQuery = useQuery({
     queryKey: ["cryptos"],
     queryFn: () => getCryptos("usd"),
@@ -10,7 +13,7 @@ const ContainerItems = () => {
     refetchOnMount: false,
     refetchOnReconnect: false,
     refetchOnWindowFocus: false,
-    enabled: true,
+    enabled: endpointState,
     retry: false,
   });
 
@@ -20,10 +23,13 @@ const ContainerItems = () => {
     <section className="container-fluid">
       <Show>
         <Show.When isTrue={isLoading}>
-          <div>Loading</div>
+          <Loading />
         </Show.When>
-        <Show.When isTrue={isError}>
-          <div>Error al obtener los datos</div>
+        <Show.When isTrue={isError || !endpointState}>
+          <ErrorComponent
+            title="Error fetching data"
+            text="We encountered issues while fetching the necessary information. Please try again later."
+          />
         </Show.When>
         <Show.Else>
           <div className="row align-items-center">

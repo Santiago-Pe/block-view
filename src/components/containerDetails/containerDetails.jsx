@@ -2,7 +2,6 @@ import PropTypes from "prop-types";
 import DescriptionHTML from "../descriptionHtml/descriptionHtml";
 
 const ContainerDetails = ({ data }) => {
-  console.log(data?.description?.es);
   const {
     description,
     current_price,

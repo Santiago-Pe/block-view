@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { getCryptoDetails } from "../services/services";
-import PropTypes from "prop-types";
 import { useParams } from "react-router-dom";
 import { ContainerDetails, Show } from "../components";
-import { Title } from "../ui-components";
+import { Loading, Title } from "../ui-components";
+import useCreateBreadCrumbs from "../hooks/useCreateBreadCrumbs";
 
 const Details = () => {
   const { id } = useParams();
@@ -17,16 +17,17 @@ const Details = () => {
     refetchOnWindowFocus: false,
     enabled: true,
     retry: false,
-    onSucces: (data) => console.log(data),
+    //onSucces: (data) => console.log(data),
   });
 
   const { name } = cryptoDetailsQuery.data || { name: "Coin" };
+  useCreateBreadCrumbs([{ name: `Details of ${name}` }]);
 
   return (
     <section className="container-fluid">
       <Show>
         <Show.When isTrue={cryptoDetailsQuery.isLoading}>
-          <div>Cargando...</div>
+          <Loading />
         </Show.When>
         <Show.When
           isTrue={cryptoDetailsQuery.isError || !cryptoDetailsQuery.data}
@@ -40,11 +41,6 @@ const Details = () => {
       </Show>
     </section>
   );
-};
-Details.propTypes = {
-  params: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-  }).isRequired,
 };
 
 export default Details;

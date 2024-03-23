@@ -43,3 +43,15 @@ export const getCryptoDetails = async (id) => {
   }
   return;
 };
+export const getCryptoDetailsChart = async (id) => {
+  const headers = { "x-cg-demo-api-key": API_KEY };
+  const url = `${URL}/coins/${id}/market_chart?vs_currency=usd&days=2`;
+
+  try {
+    const response = await axios.get(url, { headers });
+    return response.data;
+  } catch (error) {
+    console.error("Error:", error);
+    return null; // Maneja el error adecuadamente según lo necesites
+  }
+};

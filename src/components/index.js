@@ -5,3 +5,4 @@ export { default as Show } from "./show/show";
 export { default as Header } from "./header/header";
 export { default as ContainerDetails } from "./containerDetails/containerDetails";
 export { default as DescriptionHTML } from "./descriptionHtml/descriptionHtml";
+export { default as ContainerGraphic } from "./containerGraphic/containerGraphic";

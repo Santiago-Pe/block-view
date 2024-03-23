@@ -1,21 +1,23 @@
 import { useQuery } from "@tanstack/react-query";
-import { getCryptoDetails } from "../services/services";
+import { getCryptoDetailsChart } from "../services/services";
 import { useParams } from "react-router-dom";
 import { ContainerDetails, Show } from "../components";
 import { Loading, Title } from "../ui-components";
 import useCreateBreadCrumbs from "../hooks/useCreateBreadCrumbs";
+import { useSelector } from "react-redux";
 
 const Details = () => {
   const { id } = useParams();
+  const endpointState = useSelector((state) => state.appReducer.isActive);
 
   const cryptoDetailsQuery = useQuery({
     queryKey: ["crypto-details", id],
-    queryFn: () => getCryptoDetails(id),
+    queryFn: () => getCryptoDetailsChart(id),
     refetchIntervalInBackground: false,
     refetchOnMount: false,
     refetchOnReconnect: false,
     refetchOnWindowFocus: false,
-    enabled: true,
+    enabled: endpointState,
     retry: false,
     //onSucces: (data) => console.log(data),
   });

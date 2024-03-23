@@ -21,7 +21,7 @@ const Details = () => {
   });
 
   const { name } = cryptoDetailsQuery.data || { name: "Coin" };
-  useCreateBreadCrumbs([{ name: `Details of ${name}` }]);
+  useCreateBreadCrumbs([{ name: `Details of ${name}`, path: "/" }]);
 
   return (
     <section className="container-fluid">

@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 
 function App() {
   const dispatch = useDispatch();
+  // eslint-disable-next-line no-unused-vars
   const endpointStatusQuery = useQuery({
     queryKey: ["enpoint"],
     queryFn: () => checkEndpointStatus(),
@@ -26,7 +27,6 @@ function App() {
     },
   });
 
-  console.log(endpointStatusQuery);
   return (
     <Layout>
       <Routes>

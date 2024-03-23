@@ -1,36 +1,31 @@
 import PropTypes from "prop-types";
 import DescriptionHTML from "../descriptionHtml/descriptionHtml";
+import { InfoTable, Title } from "../../ui-components";
 
 const ContainerDetails = ({ data }) => {
-  const {
-    description,
-    current_price,
-    high_24h,
-    low_24h,
-    price_change_24h,
-    total_volume,
-  } = data;
+  const { description, market_data, symbol } = data;
 
   return (
-    <detail>
+    <detail className="container-lg mt-4">
+      <Title
+        text="Detailed Information"
+        customClass={"col-12"}
+        level={4}
+        align="start"
+      />
+
+      <InfoTable info={market_data} symbol={symbol} />
+      <Title text="About Coin" customClass={"col-12"} level={4} align="start" />
       <DescriptionHTML htmlString={description.en} />
-      <p>Precio Actual: ${current_price}</p>
-      <p>Precio Máximo en las últimas 24 horas: ${high_24h}</p>
-      <p>Precio Mínimo en las últimas 24 horas: ${low_24h}</p>
-      <p>Variación de Precio en las últimas 24 horas: ${price_change_24h}</p>
-      <p>Volumen de Mercado: ${total_volume}</p>
     </detail>
   );
 };
 
 ContainerDetails.propTypes = {
   data: PropTypes.shape({
-    description: PropTypes.object.isRequired,
-    current_price: PropTypes.number.isRequired,
-    high_24h: PropTypes.number.isRequired,
-    low_24h: PropTypes.number.isRequired,
-    price_change_24h: PropTypes.number.isRequired,
-    total_volume: PropTypes.number.isRequired,
+    description: PropTypes.object,
+    market_data: PropTypes.object.isRequired,
+    symbol: PropTypes.string.isRequired,
   }).isRequired,
 };
 

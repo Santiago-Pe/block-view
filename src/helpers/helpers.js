@@ -1,11 +1,7 @@
 import { format } from "date-fns";
 export function convertToPercentage(number) {
-  const numberAsString = number.toString();
-
-  const numberWithDot = numberAsString.replace(",", ".");
-
-  const percentage = parseFloat(numberWithDot) * 100;
-
+  // Multiplicar por 100 solo si el número es menor que 1
+  const percentage = number < 1 ? number * 100 : number;
   return percentage.toFixed(2) + "%";
 }
 

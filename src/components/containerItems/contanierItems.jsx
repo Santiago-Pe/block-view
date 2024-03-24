@@ -1,7 +1,7 @@
 import { Item, Show } from "../../components";
 import { useQuery } from "@tanstack/react-query";
 import { getCryptos } from "../../services/services";
-import { ErrorComponent, Loading } from "../../ui-components";
+import { ErrorComponent, Loading, Title } from "../../ui-components";
 import { useSelector } from "react-redux";
 
 const ContainerItems = () => {
@@ -32,6 +32,7 @@ const ContainerItems = () => {
           />
         </Show.When>
         <Show.Else>
+          <Title text="Top 10 Coins" level={1} />
           <div className="row align-items-center">
             {data?.map((item) => (
               <Item key={item.id} data={item} />

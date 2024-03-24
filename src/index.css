@@ -12,6 +12,10 @@ body {
   font-family: Quicksand, sans-serif;
   box-sizing: border-box;
 }
+section {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 ul,
 li,
 p {

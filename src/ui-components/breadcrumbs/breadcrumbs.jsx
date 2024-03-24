@@ -10,14 +10,18 @@ const BreadCrumbs = ({ crumbs }) => {
   }
 
   return (
-    <div className="breadcrumb d-flex align-items-center">
-      <Link className={`${styles.breadcrumbItem}`} to={"/"}>
+    <div className="breadcrumb d-flex align-items-center m-0">
+      <Link className={`${styles.breadcrumbItem} me-3`} to={"/"}>
         Home
       </Link>
 
       {crumbs.map(({ name, path, onClick, disabled = false }, key) =>
         key + 1 === crumbs.length ? (
-          <span className={`${styles.breadcrumbItem}active`} href="/" key={key}>
+          <span
+            className={`${styles.breadcrumbItem} text-primary`}
+            href="/"
+            key={key}
+          >
             {name}
           </span>
         ) : (

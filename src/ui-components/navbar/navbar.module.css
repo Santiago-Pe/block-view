@@ -1,0 +1,35 @@
+/* navbar.module.css */
+.dropdownMenu {
+  position: relative;
+}
+
+.menuButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.navLinks {
+  position: absolute;
+  top: 100%; /* Aparece debajo del botón */
+  right: -300px; /* Aparece a la derecha */
+  background-color: red;
+  padding: 20px;
+  width: 250px;
+  height: 100%;
+  transition: right 0.3s ease-in-out; /* Transición para abrir y cerrar */
+}
+
+.navLinks.open {
+  right: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}

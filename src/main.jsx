@@ -7,17 +7,21 @@ import App from "./App.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import { BreadCrumbProvider } from "./context/breadcrumbContext.jsx";
-import store from "./reduxes/appStore.js";
+import appStore from "./reduxes/appStore.js";
+import { MobileProvider } from "./context/mobileContext.jsx";
+
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={appStore}>
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
-          <BreadCrumbProvider>
-            <App />
-          </BreadCrumbProvider>
+          <MobileProvider>
+            <BreadCrumbProvider>
+              <App />
+            </BreadCrumbProvider>
+          </MobileProvider>
         </BrowserRouter>
       </QueryClientProvider>
     </Provider>

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const appRducer = createSlice({
+export const appSlice = createSlice({
   name: "endpoint",
   initialState: {
     isActive: false, // Estado inicial: endpoint inactivo
@@ -16,6 +16,6 @@ export const appRducer = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { setEndpointActive, setEndpointInactive } = appRducer.actions;
+export const { setEndpointActive, setEndpointInactive } = appSlice.actions;
 
-export default appRducer.reducer;
+export default appSlice.reducer;

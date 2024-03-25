@@ -1,23 +1,29 @@
-import { Link } from "react-router-dom";
-import Button from "../button/button";
-import BreadCrumbs from "../breadcrumbs/breadcrumbs";
 import { useContext } from "react";
+import BreadCrumb from "../breadcrumbs/breadcrumbs";
 import { BreadCrumbContext } from "../../context/breadcrumbContext";
+import { Show } from "../../components";
+import NavbarDesktop from "./navbarDesktop";
+import { useMobile } from "../../context/mobileContext";
+import DropdownMenu from "./dropdownMenu";
 
 const Navbar = () => {
   const { breadcrumbs } = useContext(BreadCrumbContext);
-  const conectWallet = () => {
-    console.log("connect metamask");
-  };
+  const { isMobile } = useMobile();
+
   return (
-    <nav className="d-flex justify-content-end align-items-center">
-      <BreadCrumbs crumbs={breadcrumbs} />
-      <div className="me-4">
-        <Link to={"/"}>Home</Link>
+    <nav className="d-flex justify-content-between align-items-center">
+      <div className="">
+        <BreadCrumb crumbs={breadcrumbs} />
       </div>
-      <div className="right-section">
-        <Button onClick={conectWallet} text="Connect Metamask" size={"lg"} />
-      </div>
+      {/* Condicional que muestre navMobile o navDesktop */}
+      <Show>
+        <Show.When isTrue={isMobile}>
+          <DropdownMenu />
+        </Show.When>
+        <Show.Else>
+          <NavbarDesktop />
+        </Show.Else>
+      </Show>
     </nav>
   );
 };

@@ -1,8 +1,15 @@
-import { configureStore } from "@reduxjs/toolkit";
-import appReducer from "./appReducer";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
+import appSlice from "./appSlice";
+import metaMaskSlice from "./metaMaskSlice";
 
-const store = configureStore({
-  reducer: { appReducer },
+const rootReducer = combineReducers({
+  app: appSlice,
+  user: metaMaskSlice,
+  // Agrega otros slices según sea necesario
 });
 
-export default store;
+const appStore = configureStore({
+  reducer: rootReducer,
+});
+
+export default appStore;

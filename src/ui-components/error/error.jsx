@@ -11,8 +11,8 @@ const ErrorComponent = ({ title, text }) => {
 };
 
 ErrorComponent.propTypes = {
-  title: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  text: PropTypes.string,
 };
 
 export default ErrorComponent;

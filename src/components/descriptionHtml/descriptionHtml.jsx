@@ -15,7 +15,7 @@ const DescriptionHTML = ({ htmlString }) => {
 };
 
 DescriptionHTML.propTypes = {
-  htmlString: PropTypes.string.isRequired,
+  htmlString: PropTypes.string,
 };
 
 export default DescriptionHTML;

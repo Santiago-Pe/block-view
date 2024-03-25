@@ -13,7 +13,7 @@ const Percentage = ({ value }) => {
 };
 
 Percentage.propTypes = {
-  value: PropTypes.number.isRequired,
+  value: PropTypes.number,
 };
 
 export default Percentage;

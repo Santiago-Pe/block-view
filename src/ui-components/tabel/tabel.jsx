@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import styles from "./tabel.module.css";
+import TableRow from "./tabelRow";
 
 const Table = ({
   data,
@@ -27,7 +28,9 @@ const Table = ({
       </th>
     ));
   };
-
+  const generateRandomId = () => {
+    return Math.random().toString(36).substring(2);
+  };
   return (
     <div className={`w-100 ${borderContainer ? styles.borderContainer : ""}`}>
       <div className={styles.datatableScroll}>
@@ -49,7 +52,11 @@ const Table = ({
           </thead>
           <tbody>
             {data && data.length > 0 ? (
-              data.map((rowData, index) => renderRow(rowData, index))
+              data.map((rowData) => (
+                <TableRow key={generateRandomId()}>
+                  {renderRow(rowData)}
+                </TableRow>
+              ))
             ) : (
               <tr>
                 <td
@@ -68,12 +75,12 @@ const Table = ({
 };
 
 Table.propTypes = {
-  data: PropTypes.array.isRequired, // Datos a mostrar en la tabla
-  columns: PropTypes.array.isRequired, // Columnas de la tabla
-  renderRow: PropTypes.func.isRequired, // Función para renderizar una fila
-  borderTop: PropTypes.bool, // Indica si la tabla debe tener borde superior (predeterminado: true)
-  borderContainer: PropTypes.bool, // Indica si el contenedor de la tabla debe tener borde (predeterminado: false)
-  header: PropTypes.string, // Color de fondo del encabezado de la tabla (predeterminado: 'grey')
+  data: PropTypes.array,
+  columns: PropTypes.array,
+  renderRow: PropTypes.func,
+  borderTop: PropTypes.bool,
+  borderContainer: PropTypes.bool,
+  header: PropTypes.string,
 };
 
 export default Table;

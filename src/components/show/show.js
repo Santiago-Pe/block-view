@@ -19,19 +19,19 @@ const Show = ({ children }) => {
 };
 
 Show.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 
 const When = ({ isTrue, children }) => (isTrue ? children : null);
 const Else = ({ children }) => children;
 
 When.propTypes = {
-  isTrue: PropTypes.bool.isRequired,
-  children: PropTypes.node.isRequired,
+  isTrue: PropTypes.bool,
+  children: PropTypes.node,
 };
 
 Else.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 
 Show.When = When;

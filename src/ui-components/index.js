@@ -6,4 +6,5 @@ export { default as Loading } from "./loading/loading";
 export { default as BreadCrumbs } from "./breadcrumbs/breadcrumbs";
 export { default as ErrorComponent } from "./error/error";
 export { default as InfoTable } from "./infoTabel/infoTabel";
+export { default as StatusAccount } from "./statusAccount/statusAccount";
 export * from "./tabel";

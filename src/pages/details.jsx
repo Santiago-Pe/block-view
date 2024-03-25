@@ -2,14 +2,16 @@ import { useQuery } from "@tanstack/react-query";
 import { getCryptoDetails, getCryptoDetailsChart } from "../services/services";
 import { useParams } from "react-router-dom";
 import { ContainerDetails, Show } from "../components";
-import { Loading, Title } from "../ui-components";
+import { ErrorComponent, Loading, Title } from "../ui-components";
 import useCreateBreadCrumbs from "../hooks/useCreateBreadCrumbs";
 import { useSelector } from "react-redux";
 
 const Details = () => {
   const { id } = useParams();
-  const endpointState = useSelector((state) => state.appReducer.isActive);
+  const endpointState = useSelector((state) => state.app.isActive);
+  const isConnectingAccount = useSelector((state) => state.user.isConnecting);
 
+  // Query Apis
   const cryptoDetailsQuery = useQuery({
     queryKey: ["crypto-details", id],
     queryFn: () => getCryptoDetails(id),
@@ -37,11 +39,13 @@ const Details = () => {
   useCreateBreadCrumbs([{ name: `Details of ${name}` }]);
 
   return (
-    <section className="container-fluid">
+    <section className="container-fluid py-4 px-2">
       <Show>
         <Show.When
           isTrue={
-            cryptoDetailsQuery.isLoading || cryptoDetailsChartQuery.isLoading
+            cryptoDetailsQuery.isLoading ||
+            cryptoDetailsChartQuery.isLoading ||
+            isConnectingAccount
           }
         >
           <Loading />
@@ -53,7 +57,10 @@ const Details = () => {
             cryptoDetailsChartQuery.isError
           }
         >
-          <div>Error</div>
+          <ErrorComponent
+            title="Error fetching detail data"
+            text="We encountered issues while fetching the necessary information. Please try again later."
+          />
         </Show.When>
         <Show.Else>
           <Title text={`${name} Details`} level={2} />

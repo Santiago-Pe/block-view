@@ -14,7 +14,7 @@ const useCreateBreadCrumbs = (initialCrumbs, update) => {
 };
 
 useCreateBreadCrumbs.propTypes = {
-  initialCrumbs: PropTypes.array.isRequired,
+  initialCrumbs: PropTypes.array,
   update: PropTypes.any,
 };
 

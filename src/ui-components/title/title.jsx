@@ -9,8 +9,8 @@ const Title = ({ text, level, align = "center", customClass }) => {
 };
 
 Title.propTypes = {
-  text: PropTypes.string.isRequired,
-  level: PropTypes.oneOf([1, 2, 3, 4, 5, 6]).isRequired,
+  text: PropTypes.string,
+  level: PropTypes.oneOf([1, 2, 3, 4, 5, 6]),
   align: PropTypes.string,
   customClass: PropTypes.string,
 };

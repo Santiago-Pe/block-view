@@ -44,12 +44,12 @@ const BreadCrumbs = ({ crumbs }) => {
 BreadCrumbs.propTypes = {
   crumbs: PropTypes.arrayOf(
     PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      path: PropTypes.string.isRequired,
+      name: PropTypes.string,
+      path: PropTypes.string,
       onClick: PropTypes.func,
       disabled: PropTypes.bool,
     })
-  ).isRequired,
+  ),
 };
 
 export default BreadCrumbs;

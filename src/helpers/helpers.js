@@ -4,7 +4,6 @@ export function convertToPercentage(number) {
   const percentage = number < 1 ? number * 100 : number;
   return percentage.toFixed(2) + "%";
 }
-
 export function mergeChartData(marketCaps, prices, totalVolumes) {
   const mergedData = [];
 
@@ -29,3 +28,7 @@ export function mergeChartData(marketCaps, prices, totalVolumes) {
 
   return mergedData;
 }
+export const weiToEther = (wei) => {
+  const ether = wei / Math.pow(10, 18); // Convertir de Wei a Ether dividiendo por 10^18
+  return ether.toFixed(2); // Redondear a 2 decimales
+};

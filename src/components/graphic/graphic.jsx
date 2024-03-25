@@ -67,11 +67,11 @@ const Graphic = ({ data }) => {
 Graphic.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
-      timestamp: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired,
-      volume: PropTypes.number.isRequired,
+      timestamp: PropTypes.string,
+      price: PropTypes.number,
+      volume: PropTypes.number,
     })
-  ).isRequired,
+  ),
 };
 
 export default Graphic;

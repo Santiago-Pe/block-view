@@ -9,18 +9,19 @@
 
 .navLinks {
   position: absolute;
-  top: 100%;
+  top: -300px;
   z-index: 9999;
-  right: -250px;
-  background-color: red;
+  right: 0;
+  background-color: #fff;
   padding: 20px;
-  width: 250px;
+  width: 100%;
   heigth: 100%;
-  transition: right 0.3s ease-in-out;
+  transition: top 0.3s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navLinks.open {
-  right: 0;
+  top: 100%;
 }
 
 ul {

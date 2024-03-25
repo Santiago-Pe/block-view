@@ -7,12 +7,13 @@ const StatusAccount = ({ isConnected, errorMessage = null, wallet }) => {
     switch (true) {
       case isConnected && !errorMessage:
         return "#17B26A"; // Verde
-      case errorMessage:
+      case errorMessage !== null:
         return "red"; // Rojo
       default:
         return "blue"; // Azul
     }
   };
+
   return (
     <div className="d-flex align-items-center me-4">
       <div
@@ -31,7 +32,10 @@ const StatusAccount = ({ isConnected, errorMessage = null, wallet }) => {
           <span>Balance of ethereum: ${weiToEther(wallet?.balance)}</span>
         </Show.When>
         <Show.When isTrue={errorMessage}>
-          <span>errorMessage</span>
+          <span>
+            Error connecting the account. You should check the MetaMask
+            extension.
+          </span>
         </Show.When>
         <Show.Else isTrue={errorMessage}>
           <span>No account has been connected yet.</span>

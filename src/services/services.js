@@ -1,7 +1,7 @@
 import axios from "axios";
 
 //const API_KEY = import.meta.env.API_KEY;
-const API_KEY = "CG-zk1XC692rwXZoSfQYd88F3HD";
+const API_KEY = import.meta.env.VITE_API_KEY;
 const URL = `https://api.coingecko.com/api/v3/`;
 
 export const checkEndpointStatus = async () => {

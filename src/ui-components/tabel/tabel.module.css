@@ -1,7 +1,9 @@
 .table {
   color: var(--color-primary) !important;
 }
-
+.datatableScroll {
+  overflow-x: auto;
+}
 .table thead {
   background-color: #fafafa;
   color: var(--color-secondary);
@@ -9,6 +11,9 @@
 
 .table thead th {
   padding: 0.25rem 1rem !important;
+}
+.table tr {
+  width: 100%;
 }
 
 .rowHeaderNoBorder {

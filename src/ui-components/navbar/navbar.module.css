@@ -1,7 +1,4 @@
 /* navbar.module.css */
-.dropdownMenu {
-  position: relative;
-}
 
 .menuButton {
   background: none;
@@ -13,11 +10,12 @@
 .navLinks {
   position: absolute;
   top: 100%; /* Aparece debajo del botón */
-  right: -300px; /* Aparece a la derecha */
+  right: -250px; /* Aparece a la derecha */
   background-color: red;
   padding: 20px;
   width: 250px;
   height: 100%;
+  max-height: 100%;
   transition: right 0.3s ease-in-out; /* Transición para abrir y cerrar */
 }
 

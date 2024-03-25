@@ -12,7 +12,7 @@ const NavbarDesktop = () => {
   const { connectMetaMask, disconnectMetaMask } = useMetaMask();
 
   return (
-    <div className="d-flex">
+    <div className="d-flex align-items-center">
       <StatusAccount
         isConnected={isConnected}
         wallet={wallet}
@@ -23,7 +23,7 @@ const NavbarDesktop = () => {
           Install MetaMask
         </Link>
       </Show.When>
-      <Show.When isTrue={!isConnected}>
+      <Show.When isTrue={!isConnected && hasProvider}>
         <Button
           onClick={connectMetaMask}
           disabled={isConnecting}

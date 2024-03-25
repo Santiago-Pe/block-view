@@ -24,7 +24,7 @@ const Table = ({
         colSpan="1"
         aria-label={h.title ? h.title : h}
       >
-        <span>{h}</span>
+        <p className="d-block">{h}</p>
       </th>
     ));
   };
@@ -41,7 +41,7 @@ const Table = ({
           role="grid"
           aria-describedby="DataTables_Table_0_info"
         >
-          <thead className="">
+          <thead>
             <tr
               className={`${styles.rowHeader} ${styles[`header-${header}`]} ${
                 borderTop ? styles.withBorder : styles.noBorder

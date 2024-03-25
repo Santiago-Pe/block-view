@@ -10,7 +10,7 @@ const Details = () => {
   const { id } = useParams();
   const endpointState = useSelector((state) => state.app.isActive);
   const isConnectingAccount = useSelector((state) => state.user.isConnecting);
-
+  console.log(id);
   // Query Apis
   const cryptoDetailsQuery = useQuery({
     queryKey: ["crypto-details", id],
@@ -39,7 +39,7 @@ const Details = () => {
   useCreateBreadCrumbs([{ name: `Details of ${name}` }]);
 
   return (
-    <section className="container-fluid py-4 px-2">
+    <section className="py-4 px-2" style={{ overflowX: "hidden" }}>
       <Show>
         <Show.When
           isTrue={

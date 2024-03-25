@@ -4,7 +4,7 @@ import { Money } from "../../components";
 
 import { Table, TableCell } from "../../ui-components";
 
-const InfoTable = ({ info, symbol }) => {
+const InfoTable = ({ info, symbol = "usd" }) => {
   return (
     <Table
       data={[info]}
@@ -18,19 +18,19 @@ const InfoTable = ({ info, symbol }) => {
       ]}
       renderRow={(data) => (
         <>
-          <TableCell style={{ width: "auto" }}>
+          <TableCell style={{ width: "200px" }}>
             <Money amount={data?.price_change_24h} currency="usd" />
           </TableCell>
-          <TableCell style={{ width: "auto" }}>
+          <TableCell style={{ width: "200px" }}>
             <Money amount={data?.high_24h[symbol]} currency="usd" />
           </TableCell>
-          <TableCell style={{ width: "auto" }}>
+          <TableCell style={{ width: "200px" }}>
             <Money amount={data?.low_24h[symbol]} currency="usd" />
           </TableCell>
-          <TableCell style={{ width: "auto" }}>
+          <TableCell style={{ width: "200px" }}>
             <Money amount={data?.total_volume[symbol]} currency="usd" />
           </TableCell>
-          <TableCell style={{ width: "auto" }}>
+          <TableCell style={{ width: "200px" }}>
             <Percentage value={data?.price_change_percentage_24h} />
           </TableCell>
         </>

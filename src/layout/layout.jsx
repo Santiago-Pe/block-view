@@ -6,10 +6,10 @@ import styles from "./layout.module.css";
 
 function Layout({ children }) {
   return (
-    <section className={`${styles.Layout}`}>
+    <section className={`${styles.Layout} relative`}>
       <Header />
       <main
-        className={`${styles.Content} d-flex justify-content-center align-items-center relative`}
+        className={`${styles.Content} d-flex justify-content-center align-items-center`}
       >
         {children}
       </main>

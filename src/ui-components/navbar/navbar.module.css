@@ -9,14 +9,14 @@
 
 .navLinks {
   position: absolute;
-  top: 100%; /* Aparece debajo del botón */
-  right: -250px; /* Aparece a la derecha */
+  top: 100%;
+  z-index: 9999;
+  right: -250px;
   background-color: red;
   padding: 20px;
   width: 250px;
-  height: 100%;
-  max-height: 100%;
-  transition: right 0.3s ease-in-out; /* Transición para abrir y cerrar */
+  heigth: 100%;
+  transition: right 0.3s ease-in-out;
 }
 
 .navLinks.open {

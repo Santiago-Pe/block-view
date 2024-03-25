@@ -10,7 +10,7 @@ const ContainerDetails = ({ data, graphic }) => {
   const dataFormatted = mergeChartData(market_caps, prices, total_volumes);
 
   return (
-    <detail className="container-lg">
+    <article className="container-lg">
       <div className="d-flex justify-content-start align-items-center mb-4">
         <div className="me-4">
           <img alt={symbol} src={image.small} />
@@ -45,7 +45,7 @@ const ContainerDetails = ({ data, graphic }) => {
         />
         <DescriptionHTML htmlString={description.en} />
       </div>
-    </detail>
+    </article>
   );
 };
 

@@ -18,5 +18,5 @@ export const BreadCrumbProvider = ({ children }) => {
 };
 
 BreadCrumbProvider.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };

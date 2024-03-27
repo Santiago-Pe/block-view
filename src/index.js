@@ -1,2 +1,3 @@
-export * from './components';
-export * from './ui-components';
+export * from "./components";
+export * from "./ui-components";
+export * from "./pages";

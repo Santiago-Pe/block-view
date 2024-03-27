@@ -1,26 +1,27 @@
-# Usa una imagen base con Node.js
+# Use an official Node.js runtime as a parent image
 FROM node:latest
 
-# Establece el directorio de trabajo dentro del contenedor
+# Set the working directory in the container
 WORKDIR /block-view
 
-# Copia los archivos necesarios para la instalación de las dependencias
-COPY package.json ./
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
 
-# Instala las dependencias
+# Install app dependencies
 RUN npm install
 
-# Copia el resto de los archivos de la aplicación
+
+# Copy the rest of your application code to the working directory
 COPY . .
 
-# Construye la aplicación
-RUN npm run build
+# Install app dependencies
+RUN npm install
 
-# Expone el puerto en el que la aplicación estará corriendo
+# Expose a port to communicate with the React app
 EXPOSE 5173
 
-# Define la variable de entorno VITE_API_KEY
+# Define the environment variable VITE_API_KEY
 ENV VITE_API_KEY=${VITE_API_KEY}
 
-# Comando para ejecutar la aplicación
-CMD ["npm"]
+# Start your React app
+CMD ["npm", "run", "dev"]
